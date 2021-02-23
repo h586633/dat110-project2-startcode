@@ -26,7 +26,11 @@ public class TemperatureDevice {
 		
 		client.connect();
 		
-		client.publish(Common.TEMPTOPIC, sn.toString());
+		for (int i = 0; i < COUNT; i++) {
+		
+			client.publish(Common.TEMPTOPIC, sn.toString());
+		
+		}
 		
 		client.disconnect();
 

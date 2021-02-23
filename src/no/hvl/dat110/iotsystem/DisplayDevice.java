@@ -34,7 +34,11 @@ public class DisplayDevice {
 		
 		client.subscribe(Common.TEMPTOPIC);
 		
-		client.receive();
+		for (int i = 0; i < COUNT; i++) {
+		
+			client.receive();
+		
+		}
 		
 		client.unsubscribe(Common.TEMPTOPIC);
 		
