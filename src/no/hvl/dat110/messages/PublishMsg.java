@@ -6,14 +6,36 @@ public class PublishMsg extends Message {
 	
 	// message sent from client to publish a message on a topic 
 
-	// TODO:
+	// DONE?:
 	// Implement object variables - a topic and a message is required
 
 	// Constructor, get/set-methods, and toString method
 	// as described in the project text
 	
+	private String topic;
+	private String message;
+	
+	public PublishMsg (String message) {
+		super(MessageType.PUBLISH, message);
+	}
+	
+	public String getTopic() {
+		return topic;
+	}
+	
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+	
 	public String getMessage() {
-		
-		throw new UnsupportedOperationException(TODO.method());
+		return message;
+	}
+	
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	public String toString() {
+		return "Publish the " + message + " message on the " + topic + " topic on the broker";
 	}
 }
