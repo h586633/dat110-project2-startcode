@@ -22,7 +22,7 @@ public class TemperatureDevice {
 
 		// DONE? - end
 		
-		Client client = new Client("test2", Common.BROKERHOST, Common.BROKERPORT);
+		Client client = new Client("temperatureClient", Common.BROKERHOST, Common.BROKERPORT);
 		
 		client.connect();
 		

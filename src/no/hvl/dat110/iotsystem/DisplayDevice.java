@@ -26,7 +26,7 @@ public class DisplayDevice {
 		
 		// TODO - END
 		
-		Client client = new Client("test", Common.BROKERHOST, Common.BROKERPORT);
+		Client client = new Client("displayClient", Common.BROKERHOST, Common.BROKERPORT);
 		
 		client.connect();
 		
