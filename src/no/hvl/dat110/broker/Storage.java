@@ -83,9 +83,9 @@ public class Storage {
 
 	public void addSubscriber(String user, String topic) {
 
-		// TODO: add the user as subscriber to the topic
+		// TODO (Unsure about how to connect user to topic using Set<String>): add the user as subscriber to the topic
 		
-		subscriptions.put(user, getTopics().contains(topic));
+		subscriptions.put(topic, ???);
 		
 		throw new UnsupportedOperationException(TODO.method());
 		
