@@ -163,6 +163,16 @@ public class Dispatcher extends Stopable {
 		// topic and message is contained in the subscribe message
 		// messages must be sent used the corresponding client session objects
 		
+		String topic = msg.getTopic();
+		
+		Set<String> subscribers = storage.getSubscribers(topic);
+		
+		String[] subscribersArray = (String[]) subscribers.toArray();
+		
+		for (int i = 0; i < subscribers.size(); i++) {
+			getSession(subscribersArray[i]);
+		}
+		
 		throw new UnsupportedOperationException(TODO.method());
 
 	}
