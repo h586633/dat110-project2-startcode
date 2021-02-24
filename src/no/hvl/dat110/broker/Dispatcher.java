@@ -159,9 +159,9 @@ public class Dispatcher extends Stopable {
 
 		Logger.log("onPublish:" + msg.toString());
 
-		// TODO: publish the message to clients subscribed to the topic
+		// DONE?: publish the message to clients subscribed to the topic
 		// topic and message is contained in the subscribe message
-		// messages must be sent used the corresponding client session objects
+		// messages must be sent using the corresponding client session objects
 		
 		String topic = msg.getTopic();
 		
@@ -170,10 +170,8 @@ public class Dispatcher extends Stopable {
 		String[] subscribersArray = (String[]) subscribers.toArray();
 		
 		for (int i = 0; i < subscribers.size(); i++) {
-			getSession(subscribersArray[i]);
+			storage.getSession(subscribersArray[i]).send(msg);
 		}
-		
-		throw new UnsupportedOperationException(TODO.method());
 
 	}
 }
