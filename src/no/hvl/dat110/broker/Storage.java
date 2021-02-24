@@ -74,7 +74,7 @@ public class Storage {
 	}
 
 	public void deleteTopic(String topic) {
-
+		
 		// DONE: delete topic from the storage
 		
 		subscriptions.remove(topic);
