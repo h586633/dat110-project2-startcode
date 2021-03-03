@@ -12,10 +12,11 @@ public class PublishMsg extends Message {
 	// Constructor, get/set-methods, and toString method
 	// as described in the project text
 	
+	private String user;
 	private String topic;
 	private String message;
 	
-	public PublishMsg (String message) {
+	public PublishMsg (String user, String topic, String message) {
 		super(MessageType.PUBLISH, message);
 	}
 	

@@ -10,6 +10,7 @@ public class UnsubscribeMsg extends Message {
 	// Constructor, get/set-methods, and toString method
 	// as described in the project text
 	
+	private String user;
 	private String topic;
 	
 	public String getTopic() {
@@ -20,7 +21,7 @@ public class UnsubscribeMsg extends Message {
 		this.topic = topic;
 	}
 	
-	public UnsubscribeMsg (String topic) {
+	public UnsubscribeMsg (String user, String topic) {
 		super(MessageType.UNSUBSCRIBE, topic);
 	}
 	
