@@ -1,6 +1,7 @@
 package no.hvl.dat110.broker;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -83,13 +84,12 @@ public class Storage {
 
 	public void addSubscriber(String user, String topic) {
 
-		// TODO (Unsure about how to connect user to topic using Set<String>): add the user as subscriber to the topic
+		// DONE: add the user as subscriber to the topic
 		
-		Set<String> userSet = (Set<String>) user;
+		Set<String> userSet = new HashSet<String>();
+		userSet.add(user);
 		
 		subscriptions.put(topic, userSet);
-		
-		throw new UnsupportedOperationException(TODO.method());
 		
 	}
 
