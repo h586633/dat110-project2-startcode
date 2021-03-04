@@ -86,18 +86,30 @@ public class Storage {
 
 		// DONE: add the user as subscriber to the topic
 		
-		Set<String> userSet = new HashSet<String>();
-		userSet.add(user);
-		
-		subscriptions.put(topic, userSet);
-		
+		if (subscriptions.containsKey(topic)) {
+			Set<String> set = subscriptions.get(topic);
+			set.add(user);
+			subscriptions.put(topic, set);
+		}
+		else {
+			Set<String> set = new HashSet<String>();
+			set.add(user);
+			subscriptions.put(topic, set);
+		}
 	}
 
 	public void removeSubscriber(String user, String topic) {
 
 		// DONE: remove the user as subscriber to the topic
 		
-		subscriptions.remove(user, topic);
-
+		//subscriptions.remove(user, topic);
+		
+		if (subscriptions.contains(topic)) {
+			Set<String> set = subscriptions.get(topic);
+			set.remove(user);
+			subscriptions.put(topic, set);
+		} else {
+				System.out.println("The topic " + topic + " you are trying to reach is absent! (broker.Storage.removeSubscriber");
+			}
 	}
 }
