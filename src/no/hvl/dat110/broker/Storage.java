@@ -70,7 +70,7 @@ public class Storage {
 
 		// DONE?: create topic in the storage
 		
-		subscriptions.put(topic, null);
+		subscriptions.put(topic, new HashSet<String>());
 	
 	}
 
