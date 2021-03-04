@@ -146,9 +146,6 @@ public class Dispatcher extends Stopable {
 		// DONE? (Unsure about topic): unsubscribe user to the topic
 		// user and topic is contained in the unsubscribe message
 		
-		String user = msg.getUser();
-		String topic = msg.toString();
-		
 		storage.removeSubscriber(msg.getUser(), msg.getTopic());
 		
 	}
