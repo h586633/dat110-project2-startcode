@@ -110,7 +110,7 @@ public class Dispatcher extends Stopable {
 
 		Logger.log("onCreateTopic:" + msg.toString());
 
-		// DONE?: create the topic in the broker storage
+		// DONE: create the topic in the broker storage
 		// the topic is contained in the create topic message
 		
 		storage.createTopic(msg.toString());
@@ -121,7 +121,7 @@ public class Dispatcher extends Stopable {
 
 		Logger.log("onDeleteTopic:" + msg.toString());
 
-		// DONE?: delete the topic from the broker storage
+		// DONE: delete the topic from the broker storage
 		// the topic is contained in the delete topic message
 		
 		storage.deleteTopic(msg.toString());
@@ -132,7 +132,7 @@ public class Dispatcher extends Stopable {
 
 		Logger.log("onSubscribe:" + msg.toString());
 
-		// DONE? (Unsure about topic): subscribe user to the topic
+		// DONE: subscribe user to the topic
 		// user and topic is contained in the subscribe message
 		
 		storage.addSubscriber(msg.getUser(), msg.getTopic());
@@ -143,7 +143,7 @@ public class Dispatcher extends Stopable {
 
 		Logger.log("onUnsubscribe:" + msg.toString());
 
-		// DONE? (Unsure about topic): unsubscribe user to the topic
+		// DONE: unsubscribe user to the topic
 		// user and topic is contained in the unsubscribe message
 		
 		storage.removeSubscriber(msg.getUser(), msg.getTopic());
@@ -158,15 +158,17 @@ public class Dispatcher extends Stopable {
 		// topic and message is contained in the subscribe message
 		// messages must be sent using the corresponding client session objects
 		
-		/*String topic = msg.getTopic();
+		//String topic = msg.getTopic();
 		
-		/*Set<String> subscribers = storage.getSubscribers(topic);
+		/*Set<String> subscribers = storage.getSubscribers(msg.getTopic());
 		
 		String[] subscribersArray = (String[]) subscribers.toArray();
 		
 		for (int i = 0; i < subscribers.size(); i++) {
 			storage.getSession(subscribersArray[i]).send(msg);
 		}
+		
+		/*
 		
 		
 		Iterator<String> subscribers = storage.getSubscribers(topic).iterator();
@@ -175,9 +177,11 @@ public class Dispatcher extends Stopable {
 		}
 		*/
 		
-		Set<String> subscribers = storage.getSubscribers(msg.getTopic());
-		subscribers.forEach(a -> storage.getSession(a).send(msg));
-
+		/*Set<String> subscribers = storage.getSubscribers(msg.getTopic());
+		subscribers.forEach(a -> storage.getSession(a).send(msg));*/
+		
+		Set<String> subs = storage.getSubscribers(msg.getTopic());
+		subs.stream().forEach(a -> storage.getSession(a).send(msg));
 	}
 	
 }

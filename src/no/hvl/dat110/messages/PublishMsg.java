@@ -15,9 +15,20 @@ public class PublishMsg extends Message {
 	//private String user;
 	private String topic;
 	private String message;
+	private transient String user;
 	
 	public PublishMsg (String user, String topic, String message) {
 		super(MessageType.PUBLISH, message);
+		this.topic = topic;
+		this.user = user;
+	}
+	
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 	
 	public String getTopic() {
