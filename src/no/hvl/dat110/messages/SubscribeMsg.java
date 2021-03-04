@@ -10,16 +10,16 @@ public class SubscribeMsg extends Message {
 	// Constructor, get/set-methods, and toString method
 	// as described in the project text
 	
-	private String user;
+	//private String user;
 	private String topic;
 	
 	public String getTopic() {
 		return topic;
 	}
 	
-	public String getUser() {
+	/*public String getUser() {
 		return user;
-	}
+	}*/
 	
 	public void setTopic(String topic) {
 		this.topic = topic;

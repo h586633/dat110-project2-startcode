@@ -138,7 +138,7 @@ public class Dispatcher extends Stopable {
 		String user = msg.getUser();
 		String topic = msg.toString();
 		
-		storage.addSubscriber(user, topic);
+		storage.addSubscriber(msg.getUser(), msg.getTopic());
 
 	}
 
@@ -152,7 +152,7 @@ public class Dispatcher extends Stopable {
 		String user = msg.getUser();
 		String topic = msg.toString();
 		
-		storage.removeSubscriber(user, topic);
+		storage.removeSubscriber(msg.getUser(), msg.getTopic());
 		
 	}
 
@@ -164,7 +164,7 @@ public class Dispatcher extends Stopable {
 		// topic and message is contained in the subscribe message
 		// messages must be sent using the corresponding client session objects
 		
-		String topic = msg.getTopic();
+		/*String topic = msg.getTopic();
 		
 		/*Set<String> subscribers = storage.getSubscribers(topic);
 		
@@ -173,12 +173,16 @@ public class Dispatcher extends Stopable {
 		for (int i = 0; i < subscribers.size(); i++) {
 			storage.getSession(subscribersArray[i]).send(msg);
 		}
-		*/
+		
 		
 		Iterator<String> subscribers = storage.getSubscribers(topic).iterator();
 		while (subscribers.hasNext()) {
 			storage.getSession(subscribers.next()).send(msg);
 		}
+		*/
+		
+		Set<String> subscribers = storage.getSubscribers(msg.getTopic());
+		subscribers.forEach(a -> storage.getSession(a).send(msg));
 
 	}
 	
