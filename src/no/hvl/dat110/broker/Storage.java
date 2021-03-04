@@ -54,7 +54,7 @@ public class Storage {
 
 		// DONE?: add corresponding client session to the storage
 		
-		clients.put(user, getSession(user));
+		clients.put(user, new ClientSession(user, connection));
 		
 	}
 
