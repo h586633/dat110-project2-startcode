@@ -135,9 +135,6 @@ public class Dispatcher extends Stopable {
 		// DONE? (Unsure about topic): subscribe user to the topic
 		// user and topic is contained in the subscribe message
 		
-		String user = msg.getUser();
-		String topic = msg.toString();
-		
 		storage.addSubscriber(msg.getUser(), msg.getTopic());
 
 	}
