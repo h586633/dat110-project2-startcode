@@ -4,7 +4,7 @@ public class SubscribeMsg extends Message {
 
 	// message sent from client to subscribe on a topic 
 
-	// DONE?:
+	// DONE:
 	// Implement object variables - a topic is required
 
 	// Constructor, get/set-methods, and toString method

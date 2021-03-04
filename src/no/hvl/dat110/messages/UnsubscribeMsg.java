@@ -4,7 +4,7 @@ public class UnsubscribeMsg extends Message {
 
 	// message sent from client to unsubscribe on a topic 
 
-	// DONE?:
+	// DONE:
 	// Implement object variables - a topic is required
 
 	// Constructor, get/set-methods, and toString method

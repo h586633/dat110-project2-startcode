@@ -6,7 +6,7 @@ public class PublishMsg extends Message {
 	
 	// message sent from client to publish a message on a topic 
 
-	// DONE?:
+	// DONE:
 	// Implement object variables - a topic and a message is required
 
 	// Constructor, get/set-methods, and toString method

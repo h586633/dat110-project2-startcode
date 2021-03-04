@@ -52,7 +52,7 @@ public class Storage {
 
 	public void addClientSession(String user, Connection connection) {
 
-		// DONE?: add corresponding client session to the storage
+		// DONE: add corresponding client session to the storage
 		
 		clients.put(user, new ClientSession(user, connection));
 		
@@ -68,7 +68,7 @@ public class Storage {
 
 	public void createTopic(String topic) {
 
-		// DONE?: create topic in the storage
+		// DONE: create topic in the storage
 		
 		subscriptions.put(topic, new HashSet<String>());
 	
@@ -101,8 +101,6 @@ public class Storage {
 	public void removeSubscriber(String user, String topic) {
 
 		// DONE: remove the user as subscriber to the topic
-		
-		//subscriptions.remove(user, topic);
 		
 		if (subscriptions.containsKey(topic)) {
 			Set<String> set = subscriptions.get(topic);

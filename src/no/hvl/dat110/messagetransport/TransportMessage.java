@@ -44,7 +44,7 @@ public class TransportMessage {
 
 	public void decapsulate(byte[] received) {
 
-		// DONE?
+		// DONE
 		// decapsulate data in received and put in payload
 		
 		int len = received[0];
