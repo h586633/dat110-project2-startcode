@@ -104,7 +104,7 @@ public class Storage {
 		
 		//subscriptions.remove(user, topic);
 		
-		if (subscriptions.contains(topic)) {
+		if (subscriptions.containsKey(topic)) {
 			Set<String> set = subscriptions.get(topic);
 			set.remove(user);
 			subscriptions.put(topic, set);

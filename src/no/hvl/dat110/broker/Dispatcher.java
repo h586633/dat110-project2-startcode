@@ -2,7 +2,7 @@ package no.hvl.dat110.broker;
 
 import java.util.Set;
 import java.util.Collection;
-import java.util.Iterator;
+//import java.util.Iterator;
 
 import no.hvl.dat110.common.TODO;
 import no.hvl.dat110.common.Logger;
