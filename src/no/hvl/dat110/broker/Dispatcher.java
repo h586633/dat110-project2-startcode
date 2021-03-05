@@ -168,7 +168,6 @@ public class Dispatcher extends Stopable {
 			storage.getSession(subscribersArray[i]).send(msg);
 		}
 		
-		/*
 		
 		
 		Iterator<String> subscribers = storage.getSubscribers(topic).iterator();
@@ -177,11 +176,8 @@ public class Dispatcher extends Stopable {
 		}
 		*/
 		
-		/*Set<String> subscribers = storage.getSubscribers(msg.getTopic());
-		subscribers.forEach(a -> storage.getSession(a).send(msg));*/
-		
-		Set<String> subs = storage.getSubscribers(msg.getTopic());
-		subs.stream().forEach(a -> storage.getSession(a).send(msg));
+		Set<String> subscribers = storage.getSubscribers(msg.getTopic());
+		subscribers.stream().forEach(a -> storage.getSession(a).send(msg));
 	}
 	
 }
