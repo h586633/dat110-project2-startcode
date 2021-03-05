@@ -15,12 +15,12 @@ public class PublishMsg extends Message {
 	//private String user;
 	private String topic;
 	private String message;
-	private transient String user;
+	private String user;
 	
 	public PublishMsg (String user, String topic, String message) {
-		super(MessageType.PUBLISH, message);
+		super(MessageType.PUBLISH, user);
 		this.topic = topic;
-		this.user = user;
+		this.message = message;
 	}
 	
 	public String getUser() {

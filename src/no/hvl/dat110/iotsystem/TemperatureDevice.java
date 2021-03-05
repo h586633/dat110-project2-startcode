@@ -12,7 +12,7 @@ public class TemperatureDevice {
 		// simulated / virtual temperature sensor
 		TemperatureSensor sn = new TemperatureSensor();
 
-		// DONE? (Not sure about client user name should be something else) - start
+		// DONE - start
 
 		// create a client object and use it to
 
@@ -20,7 +20,7 @@ public class TemperatureDevice {
 		// - publish the temperature(s)
 		// - disconnect from the broker
 
-		// DONE? - end
+		// DONE - end
 		
 		Client client = new Client("temperatureClient", Common.BROKERHOST, Common.BROKERPORT);
 		
@@ -28,7 +28,7 @@ public class TemperatureDevice {
 		
 		for (int i = 0; i < COUNT; i++) {
 		
-			client.publish(Common.TEMPTOPIC, sn.toString());
+			client.publish(Common.TEMPTOPIC, Integer.toString(sn.read()));
 		
 		}
 		

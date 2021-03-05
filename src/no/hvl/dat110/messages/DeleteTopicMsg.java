@@ -13,7 +13,8 @@ public class DeleteTopicMsg extends Message {
 	private String topic;
 	
 	public DeleteTopicMsg (String user, String topic) {
-		super(MessageType.DELETETOPIC, topic);
+		super(MessageType.DELETETOPIC, user);
+		this.topic = topic;
 	}
 	
 	public String getTopic() {

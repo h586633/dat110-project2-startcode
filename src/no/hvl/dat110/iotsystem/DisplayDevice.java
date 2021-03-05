@@ -13,7 +13,7 @@ public class DisplayDevice {
 		
 		System.out.println("Display starting ...");
 		
-		// DONE? (not sure if correct) - START
+		// DONE - START
 				
 		// create a client object and use it to
 		
@@ -24,9 +24,9 @@ public class DisplayDevice {
 		// - unsubscribe from the topic
 		// - disconnect from the broker
 		
-		// TODO - END
+		// DONE - END
 		
-		Client client = new Client("displayClient", Common.BROKERHOST, Common.BROKERPORT);
+		Client client = new Client("DisplayClient", Common.BROKERHOST, Common.BROKERPORT);
 		
 		client.connect();
 		
@@ -34,11 +34,15 @@ public class DisplayDevice {
 		
 		client.subscribe(Common.TEMPTOPIC);
 		
-		for (int i = 0; i < COUNT; i++) {
+		try {
 		
-			client.receive();
-		
-		}
+			for (int i = 0; i < COUNT; i++) {
+				Message m = client.receive();
+				System.out.println("Temperature: " + m.toString());
+			}
+			} catch (NullPointerException e) {
+				System.out.println("Current temperature isn't published yet!");
+			}
 		
 		client.unsubscribe(Common.TEMPTOPIC);
 		

@@ -21,10 +21,11 @@ public class UnsubscribeMsg extends Message {
 	}
 	
 	public UnsubscribeMsg (String user, String topic) {
-		super(MessageType.UNSUBSCRIBE, topic);
+		super(MessageType.UNSUBSCRIBE, user);
+		this.topic = topic;
 	}
 	
 	public String toString() {
-		return "Unsubscribing on the " + topic + " topic on the broker";
+		return "Unsubscribing from the " + topic + " topic on the broker";
 	}	
 }

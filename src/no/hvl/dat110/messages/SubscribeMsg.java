@@ -21,7 +21,8 @@ public class SubscribeMsg extends Message {
 	}
 	
 	public SubscribeMsg (String user, String topic) {
-		super(MessageType.SUBSCRIBE, topic);
+		super(MessageType.SUBSCRIBE, user);
+		this.topic = topic;
 	}
 	
 	public String toString() {
