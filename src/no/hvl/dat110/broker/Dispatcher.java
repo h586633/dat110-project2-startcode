@@ -92,7 +92,10 @@ public class Dispatcher extends Stopable {
 		Logger.log("onConnect:" + msg.toString());
 
 		storage.addClientSession(user, connection);
-
+		
+		if (storage.bufferedMessages.containsKey(user)) {
+			storage.getSession(user).send(msg);
+		}
 	}
 
 	// called by dispatch upon receiving a disconnect message
@@ -168,8 +171,6 @@ public class Dispatcher extends Stopable {
 			storage.getSession(subscribersArray[i]).send(msg);
 		}
 		
-		
-		
 		Iterator<String> subscribers = storage.getSubscribers(topic).iterator();
 		while (subscribers.hasNext()) {
 			storage.getSession(subscribers.next()).send(msg);
@@ -177,7 +178,13 @@ public class Dispatcher extends Stopable {
 		*/
 		
 		Set<String> subscribers = storage.getSubscribers(msg.getTopic());
-		subscribers.stream().forEach(a -> storage.getSession(a).send(msg));
+		subscribers.stream().forEach(s -> storage.getSession(s).send(msg));
+		
+		//subscribers.stream().forEach(s -> storage.getSession(s) == null)
+				
+		/*if (subscribers.stream().forEach(a -> storage.getSession(a).equals(null)) {
+			storage.bufferedMessages.put(msg.getMessage(), subscribers);
+		}*/
+		
 	}
-	
 }
